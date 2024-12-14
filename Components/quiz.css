@@ -1,0 +1,24 @@
+.categoryContainer {
+  max-width: 900px;
+  display: block;
+  margin: 45px auto;
+  background: rgba(200, 191, 191, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.4px);
+  -webkit-backdrop-filter: blur(4.4px);
+  border: 1px solid rgba(89, 69, 69, 0.88);
+  text-align: center;
+  padding: 20px;
+}
+
+.durationLevel {
+  display: flex;
+  justify-content: space-around;
+}
+
+.startQuizButton {
+  padding: 8px 18px;
+  border-radius: 10px;
+  border: 1px grey solid;
+}

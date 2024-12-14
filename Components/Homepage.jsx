@@ -1,3 +1,4 @@
+import "./homepage.css";
 export default function Homepage(props) {
   //   function displayQuiz(event) {
   //     event.preventDefault();
@@ -7,9 +8,15 @@ export default function Homepage(props) {
       <main>
         <div className="homepage">
           <h1 className="title">QUIZ APP</h1>
-          <p>Want to test your IQ? Take a Quiz today</p>
-          <button onClick={props.clickquiz}>Take Quiz</button>
-          <button onClick={props.clickCreate}>Create Quiz</button>
+          <p className="homepageText">
+            Want to test your IQ? Take a Quiz today
+          </p>
+          <button className="homepageButton" onClick={props.clickquiz}>
+            Take Quiz
+          </button>
+          <button className="homepageButton" onClick={props.clickCreate}>
+            Create Quiz
+          </button>
         </div>
       </main>
     </>
