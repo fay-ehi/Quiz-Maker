@@ -1,4 +1,4 @@
-export default {
+export const quizData = {
   Science: [
     {
       question: "What is the chemical symbol for gold?",

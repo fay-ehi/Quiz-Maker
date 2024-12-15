@@ -3,25 +3,26 @@ export default function TakeQuiz(props) {
   return (
     <>
       <div className="categoryContainer">
-        <h2 className="category">Category: Science</h2>
+        <h2 className="category">{props.category.category}</h2>
+        <hr className="page2Hr" />
         <h3 className="categoryDescr">
-          How well do you know science? Test your knowledge with these quick
-          questions.
+          How well do you know {props.category.category} ? Test your knowledge
+          with these quick questions.
         </h3>
         <div className="durationLevel">
           <p>
             {" "}
-            <strong>Level:</strong> Easy{" "}
+            <strong>Level:</strong> {props.category.level}
           </p>
           <p>
             {" "}
-            <strong>Duration:</strong> 5 mins{" "}
+            <strong>Duration:</strong> {props.category.duration}{" "}
           </p>
         </div>
-        <button className="startQuizButton">Start Quiz</button>
+        <button className="startQuizButton" onClick={props.click}>
+          Start Quiz
+        </button>
       </div>
-
-      <button onClick={props.click}>HomeButton</button>
     </>
   );
 }

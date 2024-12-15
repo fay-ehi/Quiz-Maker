@@ -1,8 +1,7 @@
+import React from "react";
 import "./homepage.css";
+
 export default function Homepage(props) {
-  //   function displayQuiz(event) {
-  //     event.preventDefault();
-  //   }
   return (
     <>
       <main>
