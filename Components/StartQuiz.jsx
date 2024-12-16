@@ -24,17 +24,30 @@ export default function StartQuiz(props) {
   const [lock, setLock] = React.useState(false);
   const [score, setScore] = React.useState(0);
   const [result, setResult] = React.useState(false);
+  const [userAnswers, setUserAnswers] = React.useState([]);
 
   const checkAns = (e, ans) => {
     if (lock === false) {
-      if (question.ans === ans) {
+      const isCorrect = question.ans === ans;
+      const correctAnswerText = question[`option${question.ans}`];
+      const userAnswerText = question[`option${ans}`];
+
+      if (isCorrect) {
         e.target.classList.add("correct");
-        setLock(true);
         setScore((prevScore) => prevScore + 1);
       } else {
         e.target.classList.add("wrong");
-        setLock(true);
       }
+      setUserAnswers((prevAnswers) => [
+        ...prevAnswers,
+        {
+          question: question.question,
+          correctAnswer: correctAnswerText,
+          userAnswer: userAnswerText,
+          isCorrect: isCorrect,
+        },
+      ]);
+      setLock(true);
     }
   };
 
@@ -42,7 +55,7 @@ export default function StartQuiz(props) {
     if (lock === true) {
       if (index === quizData[currentCategory].length - 1) {
         setResult(true);
-        return 0;
+        return;
       }
       setIndex((prevIndex) => prevIndex + 1);
       setQuestion(quizData[currentCategory][index + 1]);
@@ -57,55 +70,61 @@ export default function StartQuiz(props) {
       <hr />
       {result ? (
         <>
-          {" "}
           <h2 className="result">
             You Scored {score} out of {quizData[currentCategory].length}!
           </h2>
           {score >= 3 ? (
-            <h3 className="result"> Good Job 👏 </h3>
+            <h3 className="remarks"> Good Job 👏 </h3>
           ) : (
-            <h3 className="result"> Try Again ? 😞 </h3>
+            <h3 className="remarks"> Try Again ? 😞 </h3>
           )}
+         
+          <ul className="answers">
+            {userAnswers.map((answer, index) => (
+              <li key={index} className="answerItem">
+                <strong>Question{index + 1}:</strong> {answer.question}
+                <br />
+                <span className="correctAns">
+                  Correct Answer: {answer.correctAnswer}
+                </span>
+                <br />
+                <span className={answer.isCorrect ? "correctAns" : "wrongAns"}>
+                  Your Answer: {answer.userAnswer}
+                </span>
+              </li>
+            ))}
+          </ul>
         </>
       ) : (
         <>
           <h2 className="questionText">
-            {" "}
             {index + 1}. {question.question}
           </h2>
           <ul className="options">
             <li
               ref={Option1}
-              onClick={(e) => {
-                checkAns(e, 1);
-              }}
+              onClick={(e) => checkAns(e, 1)}
               className="option"
             >
               {question.option1}
             </li>
             <li
               ref={Option2}
-              onClick={(e) => {
-                checkAns(e, 2);
-              }}
+              onClick={(e) => checkAns(e, 2)}
               className="option"
             >
               {question.option2}
             </li>
             <li
               ref={Option3}
-              onClick={(e) => {
-                checkAns(e, 3);
-              }}
+              onClick={(e) => checkAns(e, 3)}
               className="option"
             >
               {question.option3}
             </li>
             <li
               ref={Option4}
-              onClick={(e) => {
-                checkAns(e, 4);
-              }}
+              onClick={(e) => checkAns(e, 4)}
               className="option"
             >
               {question.option4}
@@ -115,7 +134,6 @@ export default function StartQuiz(props) {
             Next
           </button>
           <p className="index">
-            {" "}
             {index + 1} OF {quizData[currentCategory].length} questions
           </p>
         </>
