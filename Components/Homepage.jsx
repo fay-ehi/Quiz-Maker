@@ -6,15 +6,17 @@ export default function Homepage(props) {
     <>
       <main>
         <div className="homepage">
-          <button className="logoutButton" onClick={props.onLogout}>
-            New User
-          </button>
-          <h3>{props.user.name}</h3>
+          {props.user && (
+            <button className="logoutButton" onClick={props.onLogout}>
+              New User
+            </button>
+          )}
           <h1 className="title">QUIZ APP</h1>
           <p className="homepageText">
-            Want to test your IQ? Take a Quiz today
+            {props.user
+              ? `Welcome, ${props.user.name}! Take a Quiz today `
+              : "Want to test your IQ? "}
           </p>
-
           <button className="homepageButton" onClick={props.clickquiz}>
             Take Quiz
           </button>

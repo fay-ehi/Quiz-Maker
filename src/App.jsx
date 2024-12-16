@@ -9,10 +9,16 @@ import Login from "../Components/login";
 export default function App() {
   const [page, setPage] = React.useState("home");
   const [selectedCategory, setSelectedCategory] = React.useState(null);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [user, setUser] = React.useState(
     JSON.parse(localStorage.getItem("user")) || null
   );
+  React.useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
+
   function displayHome(event) {
     event.preventDefault();
     setPage("home");
@@ -24,8 +30,8 @@ export default function App() {
   }
 
   function takeQuiz(event) {
-    if (isLoggedIn === true) {
-      event.preventDefault();
+    event.preventDefault();
+    if (user) {
       setPage("quiz");
     } else {
       setPage("login");
@@ -33,8 +39,8 @@ export default function App() {
   }
 
   function createQuiz(event) {
-    if (isLoggedIn === true) {
-      event.preventDefault();
+    event.preventDefault();
+    if (user) {
       setPage("createquiz");
     } else {
       setPage("login");
@@ -45,13 +51,6 @@ export default function App() {
     setSelectedCategory(category);
     setPage("startquiz");
   }
-
-  React.useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser) {
-      setUser(storedUser);
-    }
-  }, []);
 
   function handleLoginSuccess(userData) {
     setUser(userData);
@@ -77,9 +76,9 @@ export default function App() {
     <>
       {page === "home" && (
         <Homepage
-          user={user}
           clickquiz={takeQuiz}
           clickCreate={createQuiz}
+          user={user}
           onLogout={handleLogout}
         />
       )}
