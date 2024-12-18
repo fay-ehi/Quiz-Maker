@@ -11,16 +11,21 @@ export default function Login({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Enter your UserName"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className="loginContainer">
+      <form className="loginForm" onSubmit={handleSubmit}>
+        <h2 className="welcomeUser">Welcome!</h2>
+        <input
+          className="loginBox"
+          type="text"
+          placeholder="Enter your UserName"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <button className="loginButton" type="submit">
+          Login
+        </button>
+      </form>{" "}
+    </div>
   );
 }
