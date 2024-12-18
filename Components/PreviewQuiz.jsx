@@ -1,13 +1,8 @@
 import React, { useRef } from "react";
-import { quizData } from "../data/quizData";
 
-export default function StartQuiz(props) {
-  const { Selectedcategory } = props;
-  const currentCategory = Selectedcategory.category;
+export default function PreviewQuiz({ quiz, onBack }) {
   const [index, setIndex] = React.useState(0);
-  const [question, setQuestion] = React.useState(
-    quizData[currentCategory][index]
-  );
+  const [question, setQuestion] = React.useState(quiz.questions[index]);
 
   const Option1 = useRef(null);
   const Option2 = useRef(null);
@@ -28,8 +23,8 @@ export default function StartQuiz(props) {
 
   const checkAns = (e, ans) => {
     if (lock === false) {
-      const isCorrect = question.ans === ans;
-      const correctAnswerText = question[`option${question.ans}`];
+      const isCorrect = question.correctAnswer === ans;
+      const correctAnswerText = question[`option${question.correctAnswer}`];
       const userAnswerText = question[`option${ans}`];
 
       if (isCorrect) {
@@ -53,12 +48,12 @@ export default function StartQuiz(props) {
 
   const next = () => {
     if (lock === true) {
-      if (index === quizData[currentCategory].length - 1) {
+      if (index === quiz.questions.length - 1) {
         setResult(true);
         return;
       }
       setIndex((prevIndex) => prevIndex + 1);
-      setQuestion(quizData[currentCategory][index + 1]);
+      setQuestion(quiz.questions[index + 1]);
       setLock(false);
       removeClassesFromOptions();
     }
@@ -66,23 +61,26 @@ export default function StartQuiz(props) {
 
   return (
     <>
-      <h1 className="header"> {currentCategory}</h1>
+      <button onClick={onBack} className="backButton">
+        Back
+      </button>
+      <h1 className="header">{quiz.category}</h1>
       <hr />
       {result ? (
         <>
           <h2 className="result">
-            You Scored {score} out of {quizData[currentCategory].length}!
+            You Scored {score} out of {quiz.questions.length}!
           </h2>
           {score >= 3 ? (
-            <h3 className="remarks"> Good Job 👏 </h3>
+            <h3 className="remarks">Good Job 👏</h3>
           ) : (
-            <h3 className="remarks"> Try Again ? 😞 </h3>
+            <h3 className="remarks">Try Again ? 😞</h3>
           )}
 
           <ul className="answers">
             {userAnswers.map((answer, index) => (
               <li key={index} className="answerItem">
-                <strong>Question{index + 1}:</strong> {answer.question}
+                <strong>Question {index + 1}:</strong> {answer.question}
                 <br />
                 <span className="correctAns">
                   Correct Answer: {answer.correctAnswer}
@@ -134,7 +132,7 @@ export default function StartQuiz(props) {
             Next
           </button>
           <p className="index">
-            {index + 1} OF {quizData[currentCategory].length} questions
+            {index + 1} OF {quiz.questions.length} questions
           </p>
         </>
       )}
