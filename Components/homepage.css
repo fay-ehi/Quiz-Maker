@@ -463,7 +463,7 @@ button {
 
 .correctAnswerLabel {
   font-weight: bold;
-}
+/* }
 @media (max-width: 600px) {
   .globalSettings {
     flex-direction: column;
@@ -479,5 +479,22 @@ button {
   .quizPage {
     padding: 10px;
     margin: 0;
+  }
+} */
+@media (max-width: 600px) {
+  .difficultyOptions {
+    flex-direction: column;
+    gap: 5px; /* Reduce gaps for smaller screens */
+  }
+
+  .difficultyOptions label {
+    text-align: center; /* Center text for better readability */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  select {
+    width: 100%;
+    font-size: 14px; /* Ensure readability */
+    padding: 10px;
   }
 }
