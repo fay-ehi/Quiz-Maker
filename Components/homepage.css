@@ -238,16 +238,14 @@ p.homepageText {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%;
-  min-width: 100vw;
+  width: 100%; /* Ensure container width fits the viewport */
   min-height: 100vh;
-  margin: 0;
+  margin: 0 auto; /* Center the container */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  overflow-x: hidden;
+  box-sizing: border-box; /* Include padding and borders in the width calculation */
 }
 
 .quizPage {
@@ -266,12 +264,12 @@ p.homepageText {
 .globalSettings {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Adjust alignment */
+  justify-content: space-between; /* Spread items evenly */
   align-items: center;
-  max-width: 100%; /* Prevent overflow */
   margin: 0 auto; /* Center within parent */
-  padding: 10px;
-  box-sizing: border-box; /* Account for padding in the width */
+  padding: 15px 10px; /* Adjust padding */
+  max-width: 100%; /* Prevent overflow */
+  box-sizing: border-box; /* Include padding in the element width */
 }
 
 .categorySection,
@@ -466,26 +464,20 @@ button {
 .correctAnswerLabel {
   font-weight: bold;
 }
-
 @media (max-width: 600px) {
-  .quizPage {
-    padding: 15px; /* Reduce padding */
-  }
-
   .globalSettings {
-    flex-direction: column; /* Stack sections vertically */
-    gap: 15px;
-    padding: 10px;
-  }
-
-  .categorySection,
-  .difficultySection {
-    margin: 0;
+    flex-direction: column;
+    padding: 10px; /* Adjust padding */
   }
 
   .difficultyOptions {
+    flex-wrap: nowrap; /* Ensure options remain horizontal */
+    justify-content: center; /* Center align */
     gap: 10px;
-    justify-content: center; /* Maintain horizontal layout */
-    flex-wrap: nowrap;
+  }
+
+  .quizPage {
+    padding: 10px; /* Reduce padding on small screens */
+    margin: 0; /* Prevent accidental left or right margins */
   }
 }
