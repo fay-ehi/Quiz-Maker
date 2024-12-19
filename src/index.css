@@ -6,3 +6,6 @@
   /* margin-top: 0; */
 }
 
+body {
+  overflow-x: hidden;
+}
