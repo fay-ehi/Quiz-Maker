@@ -94,7 +94,7 @@ export default function App() {
         </div>
       )}
 
-      {page === "createquiz" && <CreateQuiz click={displayHome} />}
+      {page === "createquiz" && <CreateQuiz user={user} click={displayHome} />}
 
       {page === "startquiz" && (
         <>

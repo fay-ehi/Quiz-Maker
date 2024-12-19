@@ -7,7 +7,16 @@ export default function Homepage(props) {
       <main>
         <div className="homepage">
           {props.user && (
-            <button className="logoutButton" onClick={props.onLogout}>
+            <button
+              className="logoutButton"
+              onClick={() => {
+                if (
+                  window.confirm("You will lose all existing created quiz?")
+                ) {
+                  props.onLogout();
+                }
+              }}
+            >
               New User
             </button>
           )}

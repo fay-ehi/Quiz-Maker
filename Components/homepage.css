@@ -220,7 +220,7 @@ p.homepageText {
   }
 }
 
-.quizPageContainer {
+.createQuizContainer {
   background-image: linear-gradient(
     to right top,
     #f8b52d,
@@ -266,7 +266,7 @@ p.homepageText {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  background: #ffffff;
+  background: rgba(251, 203, 84, 0.6);
   padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -357,21 +357,6 @@ ul li {
   margin-bottom: 8px;
 }
 
-.homeButton {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 20px;
-}
-
 .homeButton:hover {
   background-color: #0056b3;
 }
@@ -401,10 +386,24 @@ button {
   color: black;
   margin-top: 20px;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .saveQuizButton:hover {
   background-color: #e0a800;
+}
+
+.viewQuizButton {
+  background-color: #312f2a;
+  color: whitesmoke;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.clearAllButton {
+  background-color: red;
+  color: whitesmoke;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 .optionsInput {
@@ -413,17 +412,27 @@ button {
   margin-top: 15px;
 }
 
+.optionGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
 .optionGroup label {
-  display: block;
   font-size: 14px;
-  margin-bottom: 5px;
   font-weight: bold;
 }
 
-.optionGroup input {
+.optionGroup input[type="text"] {
+  flex: 1;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.optionGroup input[type="radio"] {
+  margin: 0;
 }
 
 .correctAnswerSelect {

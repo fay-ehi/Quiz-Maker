@@ -1,11 +1,26 @@
 .container1 {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/152/739/original/23bedcba49b8423d268a27a6aa9eacd2.jpg?1734143875");
+  background-image: linear-gradient(
+    to right top,
+    #f8b52d,
+    #f9ba33,
+    rgb(247, 145, 35),
+    #fac33f,
+    #fbc745,
+    #fbcb54,
+    #fad062,
+    #fad470,
+    #f8d988,
+    #f6dda0,
+    #f3e2b8,
+    #f0e6cf
+  );
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
-  height: auto;
+  min-height: 100vh;
   margin: 0;
+
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -65,8 +80,8 @@
 
 .homeButton {
   padding: 7px 10px;
-  color: wheat;
   background-color: black;
+  color: whitesmoke;
   border-radius: 5px;
   margin-top: 25px;
   font-size: 16px;
@@ -85,6 +100,11 @@
     width: 45%;
     margin-top: 15px;
     margin-left: 10px;
+    background-color: black;
+    color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
   }
 }
 
@@ -143,7 +163,6 @@
   flex-direction: column;
   padding: 15px 60px;
   border-radius: 10px;
-  line-height: 15px;
   box-shadow: rgba(237, 92, 14, 0.4) 5px 5px, rgba(250, 165, 27, 0.3) 10px 10px,
     rgba(241, 145, 11, 0.2) 15px 15px, rgba(244, 88, 26, 0.1) 20px 20px,
     rgba(225, 191, 20, 0.05) 25px 25px;
@@ -154,7 +173,7 @@
   font-weight: 550;
 }
 .questionText {
-  margin-bottom: 0%;
+  margin-bottom: 10px;
   font-weight: 548;
 }
 .options {
@@ -263,4 +282,30 @@ button:hover {
   display: block;
   margin-top: 5px;
   font-size: 16px;
+}
+
+.deletButtonPositioning {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  top: -55px;
+}
+.deletButtonPositioning button {
+  background-color: rgba(225, 225, 225, 0.1);
+  margin-bottom: 0px;
+  color: rgb(255, 6, 6);
+  border: none;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.backButton {
+  background-color: rgba(255, 6, 6, 0.1);
+  border-radius: 25px;
+  border: #f8b52d 2px solid;
+  margin-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  color: whitesmoke;
+  background-color: #1c1c1c;
 }
