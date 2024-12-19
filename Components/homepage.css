@@ -463,38 +463,21 @@ button {
 
 .correctAnswerLabel {
   font-weight: bold;
-/* }
-@media (max-width: 600px) {
-  .globalSettings {
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .difficultyOptions {
-    flex-wrap: nowrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .quizPage {
-    padding: 10px;
-    margin: 0;
-  }
-} */
+}
 @media (max-width: 600px) {
   .difficultyOptions {
     flex-direction: column;
-    gap: 5px; /* Reduce gaps for smaller screens */
+    gap: 5px;
   }
 
   .difficultyOptions label {
-    text-align: center; /* Center text for better readability */
-    font-size: 14px; /* Adjust font size */
+    text-align: center;
+    font-size: 14px;
   }
 
   select {
     width: 100%;
-    font-size: 14px; /* Ensure readability */
+    font-size: 14px;
     padding: 10px;
   }
 }
