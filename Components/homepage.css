@@ -219,7 +219,7 @@ p.homepageText {
     padding: 8px 12px;
   }
 }
-
+/* Base styles */
 .createQuizContainer {
   background-image: linear-gradient(
     to right top,
@@ -399,6 +399,7 @@ button {
   margin-top: 20px;
   font-weight: bold;
 }
+
 .clearAllButton {
   background-color: red;
   color: whitesmoke;
@@ -462,4 +463,108 @@ button {
 
 .correctAnswerLabel {
   font-weight: bold;
+}
+
+/* Media Queries for responsiveness */
+
+/* Small screens (mobile) */
+@media (max-width: 767px) {
+  .createQuizContainer {
+    padding: 15px;
+  }
+
+  .quizPage {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .globalSettings {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .categorySection,
+  .difficultySection {
+    flex: unset;
+    margin: 10px 0;
+  }
+
+  .difficultyOptions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .quizCard,
+  .questionCard {
+    padding: 15px;
+  }
+
+  .actionButtons button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
+  .createQuizContainer {
+    padding: 20px;
+  }
+
+  .quizPage {
+    padding: 25px;
+    width: 80%;
+  }
+
+  .globalSettings {
+    flex-direction: column;
+  }
+
+  .categorySection,
+  .difficultySection {
+    flex: unset;
+    margin: 10px 0;
+  }
+
+  .difficultyOptions {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .quizCard,
+  .questionCard {
+    padding: 18px;
+  }
+
+  .actionButtons button {
+    width: 100%;
+  }
+}
+
+/* Larger screens (desktop) */
+@media (min-width: 1025px) {
+  .quizPage {
+    padding: 30px;
+    width: 60%;
+  }
+
+  .globalSettings {
+    flex-direction: row;
+  }
+
+  .categorySection,
+  .difficultySection {
+    flex: 1;
+    margin: 0 15px;
+  }
+
+  .difficultyOptions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .quizCard,
+  .questionCard {
+    padding: 20px;
+  }
 }
