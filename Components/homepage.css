@@ -219,7 +219,6 @@ p.homepageText {
     padding: 8px 12px;
   }
 }
-
 .createQuizContainer {
   background-image: linear-gradient(
     to right top,
@@ -240,6 +239,7 @@ p.homepageText {
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
+  min-width: 100vw;
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -263,6 +263,7 @@ p.homepageText {
 
 .globalSettings {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
@@ -275,14 +276,15 @@ p.homepageText {
 .categorySection,
 .difficultySection {
   flex: 1;
-  margin: 0 15px;
+  margin: 10px 10px;
+  min-width: 140px;
 }
 
 .categoryLabel,
 .difficultyLabel {
   font-weight: bold;
   line-height: 1.5;
-  font-size: 18px;
+  font-size: 16px;
   color: #555;
 }
 
@@ -306,13 +308,13 @@ input:focus {
 
 .difficultyOptions {
   display: flex;
+  flex-wrap: nowrap;
   gap: 10px;
   justify-content: center;
   margin-top: 10px;
 }
 
 .difficultyOptions label {
-  margin: 0 5px;
   font-size: 14px;
 }
 
@@ -462,4 +464,27 @@ button {
 
 .correctAnswerLabel {
   font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .quizPage {
+    padding: 15px; /* Reduce padding */
+  }
+
+  .globalSettings {
+    flex-direction: column; /* Stack sections vertically */
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .categorySection,
+  .difficultySection {
+    margin: 0;
+  }
+
+  .difficultyOptions {
+    gap: 10px;
+    justify-content: center; /* Maintain horizontal layout */
+    flex-wrap: nowrap;
+  }
 }

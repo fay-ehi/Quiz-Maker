@@ -207,6 +207,7 @@ export default function CreateQuiz(props) {
                   onChange={(e) => setDifficulty(e.target.value)}
                   disabled={isLocked || isEditing}
                 />
+                Hard
               </div>
             </div>
           </div>
