@@ -219,6 +219,7 @@ p.homepageText {
     padding: 8px 12px;
   }
 }
+
 .createQuizContainer {
   background-image: linear-gradient(
     to right top,
@@ -238,19 +239,18 @@ p.homepageText {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100%; /* Ensure container width fits the viewport */
+  width: 100%;
   min-height: 100vh;
-  margin: 0 auto; /* Center the container */
+  margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box; /* Include padding and borders in the width calculation */
 }
 
 .quizPage {
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   text-align: center;
   padding: 30px;
   margin: 0 auto;
@@ -263,27 +263,26 @@ p.homepageText {
 
 .globalSettings {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Spread items evenly */
+  justify-content: space-between;
   align-items: center;
-  margin: 0 auto; /* Center within parent */
-  padding: 15px 10px; /* Adjust padding */
-  max-width: 100%; /* Prevent overflow */
-  box-sizing: border-box; /* Include padding in the element width */
+  margin-bottom: 30px;
+  background: rgba(251, 203, 84, 0.6);
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .categorySection,
 .difficultySection {
   flex: 1;
-  margin: 10px 10px;
-  min-width: 140px;
+  margin: 0 15px;
 }
 
 .categoryLabel,
 .difficultyLabel {
   font-weight: bold;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 18px;
   color: #555;
 }
 
@@ -307,13 +306,13 @@ input:focus {
 
 .difficultyOptions {
   display: flex;
-  flex-wrap: nowrap;
   gap: 10px;
   justify-content: center;
   margin-top: 10px;
 }
 
 .difficultyOptions label {
+  margin: 0 5px;
   font-size: 14px;
 }
 
@@ -463,21 +462,4 @@ button {
 
 .correctAnswerLabel {
   font-weight: bold;
-}
-@media (max-width: 600px) {
-  .globalSettings {
-    flex-direction: column;
-    padding: 10px; /* Adjust padding */
-  }
-
-  .difficultyOptions {
-    flex-wrap: nowrap; /* Ensure options remain horizontal */
-    justify-content: center; /* Center align */
-    gap: 10px;
-  }
-
-  .quizPage {
-    padding: 10px; /* Reduce padding on small screens */
-    margin: 0; /* Prevent accidental left or right margins */
-  }
 }
